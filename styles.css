@@ -10,14 +10,14 @@ body {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff; /* White background */
+    background-color: black; /* White background */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
     border-radius: 10px; /* Rounded corners */
 }
 
 header h1 {
     text-align: center;
-    color: #333; /* Dark text color */
+    color: white; /* Dark text color */
     margin-bottom: 20px; /* Spacing */
 }
 

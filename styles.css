@@ -58,6 +58,9 @@ list-style: none;
 .tantrum{
 	margin-left: 100px;
 }
+.paragraph{
+	margin-left: 140px;
+}
 
 @media only screen and (max-width: 470px) {
 	
@@ -103,7 +106,7 @@ list-style: none;
 	margin-left: -20px;
 	list-style: none;
 	}
-	p{
+	.paragraph{
 		margin-left: 20px;
 	}
   }

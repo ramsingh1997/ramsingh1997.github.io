@@ -74,13 +74,14 @@ list-style: none;
 	.list{
 		list-style: none;
 		color: black;
-		margin-top:0px
+		margin-top:0px;
 		
 	}
 	
 	.list_value{
 		list-style: none;
 		color: black;
+		margin-top:0px;
 		margin-left:-20px;
 	}
 	.title{

@@ -34,11 +34,11 @@
     </div>
 
     <script>
-        function loginWithGoogle() {
+        function onGoogleScriptLoad() {
             const clientId = '664301334ooa32jaqir6ajr.apps.googleusercontent.com';
             const scope = 'https://www.googleapis.com/auth/userinfo.profile';
 
-            if (typeof gapi.auth2 !== 'undefined') {
+            if (typeof gapi !== 'undefined' && typeof gapi.auth2 !== 'undefined') {
                 const auth2 = gapi.auth2.getAuthInstance() || gapi.auth2.init({
                     client_id: clientId,
                     scope: scope
@@ -55,12 +55,11 @@
                     console.error('Error signing in with Google:', error);
                 });
             } else {
-                console.error('gapi.auth2 is not defined. Make sure the Google API script is loaded.');
+                console.error('gapi or gapi.auth2 is not defined. Make sure the Google API script is loaded.');
             }
         }
     </script>
 
-    <!-- Include the Google API script -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer onload="onGoogleScriptLoad()"></script>
 </body>
 </html>

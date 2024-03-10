@@ -35,27 +35,28 @@
 
     <script>
         function loginWithGoogle() {
-            // Replace 'YOUR_GOOGLE_CLIENT_ID' with your actual Google API Client ID
-            const clientId = '664301876326-6ckbotesi11cki9334ooa32jaqir6ajr.apps.googleusercontent.com';
-            
-            // Specify the Google API scope for authentication
+            const clientId = '664301334ooa32jaqir6ajr.apps.googleusercontent.com';
             const scope = 'https://www.googleapis.com/auth/userinfo.profile';
 
-            // Create a new Google Sign-In instance
-            const auth2 = gapi.auth2.getAuthInstance() || gapi.auth2.init({
-                client_id: clientId,
-                scope: scope
-            });
+            if (typeof gapi.auth2 !== 'undefined') {
+                const auth2 = gapi.auth2.getAuthInstance() || gapi.auth2.init({
+                    client_id: clientId,
+                    scope: scope
+                });
 
-            // Open the Google Sign-In dialog
-            auth2.signIn().then(googleUser => {
-                const profile = googleUser.getBasicProfile();
-                console.log('ID: ' + profile.getId());
-                console.log('Name: ' + profile.getName());
-                console.log('Email: ' + profile.getEmail());
-                // Redirect to success page
-                window.location.href = 'success.html';
-            });
+                auth2.signIn().then(googleUser => {
+                    const profile = googleUser.getBasicProfile();
+                    console.log('ID: ' + profile.getId());
+                    console.log('Name: ' + profile.getName());
+                    console.log('Email: ' + profile.getEmail());
+                    // Redirect to success page
+                    window.location.href = 'success.html';
+                }).catch(error => {
+                    console.error('Error signing in with Google:', error);
+                });
+            } else {
+                console.error('gapi.auth2 is not defined. Make sure the Google API script is loaded.');
+            }
         }
     </script>
 
